@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Martinez — Data Analyst & Web Developer</title>
+  <meta name="description" content="Portafolio de Daniel Martinez: Data Analyst, Web Developer y AI Agent Orchestrator. Proyectos, habilidades y contacto.">
+  <meta property="og:title" content="Daniel Martinez — Data Analyst & Web Developer">
+  <meta property="og:description" content="Portafolio profesional. Proyectos de数据分析, desarrollo web e inteligencia artificial.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 80px 0; }
+    .hero__content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero__text h1 { font-size: 3.5rem; font-weight: 700; color: #fff; margin-bottom: 16px; line-height: 1.1; }
+    .hero__text h1 span { color: #4FFFB0; }
+    .hero__text .subtitle { font-size: 1.2rem; color: #888; margin-bottom: 24px; }
+    .hero__text .desc { color: #aaa; margin-bottom: 32px; max-width: 500px; }
+    .hero__image { text-align: center; }
+    .hero__image .avatar { width: 280px; height: 280px; border-radius: 50%; background: linear-gradient(135deg, #4FFFB0, #38D8FF); display: flex; align-items: center; justify-content: center; font-size: 5rem; margin: 0 auto; }
+    .btn { display: inline-block; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+    .btn--primary { background: #4FFFB0; color: #0a0a0a; }
+    .btn--primary:hover { background: #3ee09e; transform: translateY(-2px); }
+    .btn--secondary { background: transparent; border: 2px solid #38D8FF; color: #38D8FF; }
+    .btn--secondary:hover { background: #38D8FF; color: #0a0a0a; }
+    .btns { display: flex; gap: 16px; }
+
+    /* Section */
+    section { padding: 100px 0; }
+    .section-title { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    .section-subtitle { color: #888; margin-bottom: 48px; max-width: 600px; }
+
+    /* Projects */
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .project-card { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 32px; transition: all 0.3s; }
+    .project-card:hover { border-color: #4FFFB0; transform: translateY(-4px); }
+    .project-card h3 { color: #fff; margin-bottom: 12px; font-size: 1.3rem; }
+    .project-card p { color: #888; margin-bottom: 16px; font-size: 0.95rem; }
+    .project-card .tech { display: flex; flex-wrap: wrap; gap: 8px; }
+    .project-card .tech span { background: #1a1a1a; color: #38D8FF; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .skill-card { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; text-align: center; }
+    .skill-card .icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .skill-card h3 { color: #fff; margin-bottom: 8px; }
+    .skill-card p { color: #888; font-size: 0.9rem; }
+
+    /* Contact */
+    .contact { background: #141414; border-radius: 16px; padding: 60px; text-align: center; }
+    .contact h2 { color: #fff; margin-bottom: 16px; }
+    .contact p { color: #888; margin-bottom: 32px; }
+    .contact .links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .contact .links a { color: #38D8FF; text-decoration: none; font-weight: 500; }
+    .contact .links a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer { padding: 40px 0; text-align: center; color: #555; font-size: 0.85rem; border-top: 1px solid #1a1a1a; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero__content { grid-template-columns: 1fr; text-align: center; }
+      .hero__text h1 { font-size: 2.5rem; }
+      .hero__image { order: -1; }
+      .hero__image .avatar { width: 200px; height: 200px; font-size: 3.5rem; }
+      .btns { justify-content: center; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .contact { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__content">
+        <div class="hero__text">
+          <h1>Hola, soy <span>Daniel Martinez</span></h1>
+          <p class="subtitle">Data Analyst & Web Developer</p>
+          <p class="desc">Transformo datos en decisiones y ideas en productos digitales. Especializado en análisis de datos, desarrollo web y orquestación de agentes de inteligencia artificial.</p>
+          <div class="btns">
+            <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+            <a href="#contacto" class="btn btn--secondary">Contactar</a>
+          </div>
+        </div>
+        <div class="hero__image">
+          <div class="avatar">DM</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="proyectos">
+      <h2 class="section-title">Proyectos</h2>
+      <p class="section-subtitle">Una selección de proyectos donde aplico数据分析, desarrollo web e inteligencia artificial.</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Agenc-IA</h3>
+          <p>Agencia de agentes de inteligencia artificial para PYMES. Agentes personalizados para WhatsApp, Instagram y Facebook con IA generativa.</p>
+          <div class="tech">
+            <span>Vue3</span>
+            <span>Node.js</span>
+            <span>DeepSeek</span>
+            <span>Meta API</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Hermes Agent Infrastructure</h3>
+          <p>Infraestructura de agentes AI multi-tenant con MCPs personalizados, orquestación de herramientas y gestión de memoria persistente.</p>
+          <div class="tech">
+            <span>Python</span>
+            <span>Docker</span>
+            <span>Redis</span>
+            <span>Supabase</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>TTC Transportes</h3>
+          <p>Sitio web corporativo para empresa de transportes con chatbot IA, tracking de envíos y portal B2B.</p>
+          <div class="tech">
+            <span>Next.js</span>
+            <span>Vercel</span>
+            <span>WhatsApp API</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Colegio Santa Rosa</h3>
+          <p>Sitio web institucional para colegio conformulario de admisiones, galería y sistema de comunicación con padres.</p>
+          <div class="tech">
+            <span>Vue3</span>
+            <span>GSAP</span>
+            <span>Vercel</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="habilidades">
+      <h2 class="section-title">Habilidades</h2>
+      <p class="section-subtitle">Áreas de expertise donde puedo aportar valor a tu equipo o proyecto.</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="icon">📊</div>
+          <h3>Data Analysis</h3>
+          <p>Análisis de datos, visualización y business intelligence para toma de decisiones.</p>
+        </div>
+        <div class="skill-card">
+          <div class="icon">💻</div>
+          <h3>Web Development</h3>
+          <p>Desarrollo frontend y backend con stacks modernos y mejores prácticas.</p>
+        </div>
+        <div class="skill-card">
+          <div class="icon">🤖</div>
+          <h3>AI Agents</h3>
+          <p>Orquestación de agentes de IA, MCPs, automatización y flujos inteligentes.</p>
+        </div>
+        <div class="skill-card">
+          <div class="icon">☁️</div>
+          <h3>Cloud & DevOps</h3>
+          <p>Infraestructura cloud, Docker, CI/CD y despliegues automatizados.</p>
+        </div>
+        <div class="skill-card">
+          <div class="icon">📱</div>
+          <h3>API Integration</h3>
+          <p>Integración con APIs de Meta, WhatsApp, servicios de terceros y webhooks.</p>
+        </div>
+        <div class="skill-card">
+          <div class="icon">🎨</div>
+          <h3>UI/UX Design</h3>
+          <p>Diseño de interfaces modernas, responsive y centradas en el usuario.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacto">
+      <div class="contact">
+        <h2>¿Trabajamos juntos?</h2>
+        <p>Estoy disponible para proyectos freelance, consultoría o colaboraciones a largo plazo.</p>
+        <div class="links">
+          <a href="mailto:leinadgalaxy@gmail.com">leinadgalaxy@gmail.com</a>
+          <a href="https://github.com/rolito240" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/daniel-martinez-381034228/" target="_blank">LinkedIn</a>
+          <a href="https://wa.me/573002053165" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Daniel Martinez. Hecho con dedicación y mucho café.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
