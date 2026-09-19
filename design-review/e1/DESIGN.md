@@ -37,4 +37,4 @@ One slow background route field built with CSS/SVG. Motion pauses manually, when
 
 ## Preserve and Change
 
-Preserve Daniel's real projects, contact identity and direct CV access. Replace the old neon language, unsupported counters, text residue and anonymous `DM` avatar in E2 only, after this direction is approved. The portrait is a local candidate and remains pending likeness approval for publication.
+Preserve Daniel's real projects, contact identity and direct CV access. Replace the old neon language, unsupported counters, text residue and anonymous `DM` avatar in E2 only, after this direction is approved. The portrait is Daniel's user-supplied photograph, encoded locally without generative edits.

@@ -1,604 +1,142 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Martinez — Data Analyst & AI Agent Orchestrator</title>
-  <meta name="description" content="Portafolio de Daniel Martinez: Data Analyst, Web Developer y AI Agent Orchestrator. Proyectos de analisis de datos, desarrollo web e inteligencia artificial.">
-  <meta property="og:title" content="Daniel Martinez — Data Analyst & AI Agent Orchestrator">
-  <meta property="og:description" content="Portafolio profesional. Proyectos de analisis de datos, desarrollo web e inteligencia artificial.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Portafolio de Daniel Martinez: desarrollo full-stack, sistemas empresariales e integración de agentes de IA.">
   <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    :root {
-      --bg-dark: #0A0E1A;
-      --bg-pearl: #FAFBFF;
-      --neon-blue: #00D4FF;
-      --neon-purple: #8B5CF6;
-      --text-light: #F8FAFC;
-      --text-dark: #1E293B;
-      --text-muted: #4A5568;
-      --gradient-neon: linear-gradient(135deg, #00D4FF, #8B5CF6);
-      --glow-blue: 0 0 20px rgba(0,212,255,0.3), 0 0 40px rgba(0,212,255,0.1);
-    }
-    
-    body { 
-      font-family: 'Inter', sans-serif; 
-      background: var(--bg-dark); 
-      color: var(--text-light); 
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    
-    /* Grid background */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: 
-        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 16px 0;
-      background: rgba(10,14,26,0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0,212,255,0.1);
-    }
-    
-    nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .logo {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 800;
-      font-size: 1.5rem;
-      color: var(--text-light);
-      text-decoration: none;
-    }
-    
-    .logo span {
-      background: var(--gradient-neon);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 24px;
-    }
-    
-    .nav-links a {
-      color: rgba(248,250,252,0.7);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.3s;
-    }
-    
-    .nav-links a:hover {
-      color: var(--neon-blue);
-    }
-    
-    /* Hero */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0,212,255,0.1);
-      border: 1px solid rgba(0,212,255,0.3);
-      padding: 8px 16px;
-      border-radius: 100px;
-      color: var(--neon-blue);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      margin-bottom: 24px;
-    }
-    
-    .hero-badge .dot {
-      width: 8px;
-      height: 8px;
-      background: var(--neon-blue);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,212,255,0.4); }
-      50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(0,212,255,0); }
-    }
-    
-    .hero h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-    
-    .hero h1 .neon {
-      background: var(--gradient-neon);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    .hero p {
-      color: rgba(248,250,252,0.7);
-      font-size: 1.1rem;
-      margin-bottom: 32px;
-      max-width: 500px;
-    }
-    
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-    }
-    
-    .btn {
-      padding: 14px 28px;
-      border-radius: 10px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-    
-    .btn-neon {
-      background: var(--gradient-neon);
-      color: white;
-      box-shadow: var(--glow-blue);
-    }
-    
-    .btn-neon:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 20px rgba(0,212,255,0.5), 0 0 60px rgba(0,212,255,0.2);
-    }
-    
-    .btn-ghost {
-      background: transparent;
-      border: 1px solid rgba(0,212,255,0.3);
-      color: var(--neon-blue);
-    }
-    
-    .btn-ghost:hover {
-      background: rgba(0,212,255,0.1);
-      border-color: var(--neon-blue);
-    }
-    
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      margin-top: 40px;
-    }
-    
-    .stat {
-      text-align: center;
-    }
-    
-    .stat-number {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--neon-blue);
-      text-shadow: 0 0 10px rgba(0,212,255,0.5);
-    }
-    
-    .stat-label {
-      font-size: 0.85rem;
-      color: rgba(248,250,252,0.5);
-    }
-    
-    /* Avatar */
-    .hero-avatar {
-      display: flex;
-      justify-content: center;
-    }
-    
-    .avatar-container {
-      position: relative;
-      width: 300px;
-      height: 300px;
-    }
-    
-    .avatar-glow {
-      position: absolute;
-      inset: -20px;
-      background: radial-gradient(circle, rgba(0,212,255,0.2) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-10px) scale(1.05); }
-    }
-    
-    .avatar {
-      width: 100%;
-      height: 100%;
-      background: var(--gradient-neon);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 4rem;
-      font-weight: 800;
-      color: white;
-      position: relative;
-      z-index: 1;
-    }
-    
-    /* Sections */
-    section {
-      padding: 100px 0;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .section-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    
-    .section-subtitle {
-      color: rgba(248,250,252,0.7);
-      margin-bottom: 48px;
-      max-width: 600px;
-    }
-    
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    
-    .project-card {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(0,212,255,0.1);
-      border-radius: 16px;
-      padding: 32px;
-      transition: all 0.3s;
-    }
-    
-    .project-card:hover {
-      border-color: var(--neon-blue);
-      transform: translateY(-4px);
-      box-shadow: var(--glow-blue);
-    }
-    
-    .project-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-    }
-    
-    .project-card p {
-      color: rgba(248,250,252,0.7);
-      margin-bottom: 16px;
-      font-size: 0.95rem;
-    }
-    
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    
-    .tech-tag {
-      background: rgba(0,212,255,0.1);
-      color: var(--neon-blue);
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-family: 'JetBrains Mono', monospace;
-    }
-    
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    
-    .skill-card {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(0,212,255,0.1);
-      border-radius: 16px;
-      padding: 24px;
-      text-align: center;
-      transition: all 0.3s;
-    }
-    
-    .skill-card:hover {
-      border-color: var(--neon-blue);
-      box-shadow: var(--glow-blue);
-    }
-    
-    .skill-icon {
-      font-size: 2.5rem;
-      margin-bottom: 16px;
-    }
-    
-    .skill-card h3 {
-      margin-bottom: 8px;
-    }
-    
-    .skill-card p {
-      color: rgba(248,250,252,0.7);
-      font-size: 0.9rem;
-    }
-    
-    /* Contact */
-    .contact-box {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(0,212,255,0.1);
-      border-radius: 16px;
-      padding: 60px;
-      text-align: center;
-    }
-    
-    .contact-box h2 {
-      margin-bottom: 16px;
-    }
-    
-    .contact-box p {
-      color: rgba(248,250,252,0.7);
-      margin-bottom: 32px;
-    }
-    
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    
-    .contact-links a {
-      color: var(--neon-blue);
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s;
-    }
-    
-    .contact-links a:hover {
-      text-shadow: 0 0 10px rgba(0,212,255,0.5);
-    }
-    
-    /* Footer */
-    footer {
-      padding: 40px 0;
-      text-align: center;
-      color: rgba(248,250,252,0.5);
-      font-size: 0.85rem;
-      border-top: 1px solid rgba(0,212,255,0.1);
-      position: relative;
-      z-index: 1;
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero-content { grid-template-columns: 1fr; text-align: center; }
-      .hero h1 { font-size: 2.5rem; }
-      .hero-avatar { order: -1; }
-      .avatar-container { width: 200px; height: 200px; }
-      .avatar { font-size: 3rem; }
-      .hero-buttons { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .contact-box { padding: 40px 24px; }
-    }
-  </style>
+  <meta property="og:title" content="Daniel Martinez · Desarrollo full-stack e integración de IA">
+  <meta property="og:description" content="Aplicaciones web, ERP/CRM, APIs y agentes de IA convertidos en software útil para equipos reales.">
+  <title>Daniel Martinez · Desarrollo full-stack e integración de IA</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="motion.js" defer></script>
 </head>
-<body>
-  <!-- Navigation -->
-  <nav>
-    <div class="container">
-      <a href="#" class="logo">Daniel<span>M</span></a>
-      <div class="nav-links">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#habilidades">Habilidades</a>
-        <a href="#contacto">Contacto</a>
+<body data-lang="es">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header shell">
+    <a class="wordmark" href="#contenido" aria-label="Daniel Martinez, inicio">Daniel Martinez<span>.</span></a>
+    <nav aria-label="Navegación principal">
+      <a href="#proyecto"><span data-copy="es">Proyecto</span><span data-copy="en">Project</span></a>
+      <a href="#perfil"><span data-copy="es">Perfil</span><span data-copy="en">Profile</span></a>
+      <a href="#contacto"><span data-copy="es">Contacto</span><span data-copy="en">Contact</span></a>
+    </nav>
+    <div class="header-actions">
+      <div class="language-switch" role="group" aria-label="Idioma">
+        <button type="button" data-language="es" aria-pressed="true">ES</button>
+        <button type="button" data-language="en" aria-pressed="false">EN</button>
       </div>
+      <a class="cv-link" href="assets/Daniel_Martinez_CV_ES_ATS.pdf" data-cv-link>
+        <span data-copy="es">CV / ES</span><span data-copy="en">CV / EN</span>
+      </a>
     </div>
-  </nav>
+  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <div class="hero-badge">
-            <span class="dot"></span>
-            <span>Disponible para proyectos</span>
-          </div>
-          <h1>Hola, soy <span class="neon">Daniel Martinez</span></h1>
-          <p>Data Analyst & AI Agent Orchestrator. Transformo datos en decisiones y negocio en automatización inteligente.</p>
-          <div class="hero-buttons">
-            <a href="#proyectos" class="btn btn-neon">Ver proyectos</a>
-            <a href="#contacto" class="btn btn-ghost">Contactar</a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <div class="stat-number">4+</div>
-              <div class="stat-label">Proyectos</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">2+</div>
-              <div class="stat-label">Años exp.</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Compromiso</div>
-            </div>
-          </div>
-        </div>
-        <div class="hero-avatar">
-          <div class="avatar-container">
-            <div class="avatar-glow"></div>
-            <div class="avatar">DM</div>
-          </div>
-        </div>
+  <main id="contenido">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="route-field" aria-hidden="true">
+        <svg viewBox="0 0 1000 760" preserveAspectRatio="xMidYMid slice">
+          <path d="M-30 590C140 400 260 690 430 470S720 120 1030 220"/>
+          <path d="M-80 680C130 530 310 760 500 520S760 210 1050 310"/>
+          <path d="M160-20C270 150 190 310 390 350S710 250 1020 50"/>
+          <circle class="signal signal-a" cx="430" cy="470" r="6"/>
+          <circle class="signal signal-b" cx="700" cy="270" r="4"/>
+        </svg>
       </div>
-    </div>
-  </section>
 
-  <!-- Projects -->
-  <section id="proyectos">
-    <div class="container">
-      <h2 class="section-title">Proyectos</h2>
-      <p class="section-subtitle">Una selección de proyectos donde aplico数据分析, desarrollo web e inteligencia artificial.</p>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Agenc-IA</h3>
-          <p>Agencia de agentes de inteligencia artificial para PYMES. Agentes personalizados para WhatsApp, Instagram y Facebook con IA generativa.</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Vue3</span>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">DeepSeek</span>
-            <span class="tech-tag">Meta API</span>
-          </div>
+      <div class="hero-copy">
+        <p class="eyebrow" data-copy="es">Desarrollo full-stack · Integración de IA</p>
+        <p class="eyebrow" data-copy="en">Full-stack development · AI integration</p>
+        <h1 id="hero-title">
+          <span data-copy="es">Convierto procesos de negocio en <strong>software útil.</strong></span>
+          <span data-copy="en">I turn business processes into <strong>useful software.</strong></span>
+        </h1>
+        <p class="lead" data-copy="es">Soy Daniel Martinez. Desarrollo aplicaciones web y conecto interfaces, bases de datos, APIs y agentes de IA para crear soluciones que un equipo pueda usar y mantener.</p>
+        <p class="lead" data-copy="en">I'm Daniel Martinez, a full-stack developer focused on web applications, business systems and AI integration. I connect interfaces, databases, APIs and AI agents to build practical solutions.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#proyecto"><span data-copy="es">Ver proyecto seleccionado</span><span data-copy="en">View selected project</span><span aria-hidden="true">↘</span></a>
+          <a class="button button-secondary" href="assets/Daniel_Martinez_CV_ES_ATS.pdf" data-cv-primary><span data-copy="es">Abrir CV en español</span><span data-copy="en">Open CV in English</span></a>
         </div>
-        <div class="project-card">
-          <h3>Hermes Agent Infrastructure</h3>
-          <p>Infraestructura de agentes AI multi-tenant con MCPs personalizados, orquestación de herramientas y gestión de memoria persistente.</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">Redis</span>
-            <span class="tech-tag">Supabase</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3>TTC Transportes</h3>
-          <p>Sitio web corporativo para empresa de transportes con chatbot IA, tracking de envíos y portal B2B.</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Next.js</span>
-            <span class="tech-tag">Vercel</span>
-            <span class="tech-tag">WhatsApp API</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3>Colegio Santa Rosa</h3>
-          <p>Sitio web institucional para colegio con formulario de admisiones, galería y sistema de comunicación con padres.</p>
-          <div class="tech-tags">
-            <span class="tech-tag">Vue3</span>
-            <span class="tech-tag">GSAP</span>
-            <span class="tech-tag">Vercel</span>
-          </div>
-        </div>
+        <p class="availability"><span class="status-dot" aria-hidden="true"></span><span data-copy="es">Abierto a oportunidades de desarrollo e integración</span><span data-copy="en">Open to development and integration opportunities</span></p>
       </div>
-    </div>
-  </section>
 
-  <!-- Skills -->
-  <section id="habilidades">
-    <div class="container">
-      <h2 class="section-title">Habilidades</h2>
-      <p class="section-subtitle">Áreas de expertise donde puedo aportar valor a tu equipo o proyecto.</p>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">📊</div>
-          <h3>Data Analysis</h3>
-          <p>Análisis de datos, visualización y business intelligence para toma de decisiones.</p>
+      <figure class="portrait">
+        <div class="portrait-frame">
+          <img src="assets/daniel-martinez.jpg" width="960" height="1283" alt="Retrato de Daniel Martinez">
+          <div class="portrait-label" aria-hidden="true"><span>DANIEL MARTINEZ</span><span>BUCARAMANGA · CO</span></div>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">💻</div>
-          <h3>Web Development</h3>
-          <p>Desarrollo frontend y backend con stacks modernos y mejores prácticas.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🤖</div>
-          <h3>AI Agents</h3>
-          <p>Orquestación de agentes de IA, MCPs, automatización y flujos inteligentes.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">☁️</div>
-          <h3>Cloud & DevOps</h3>
-          <p>Infraestructura cloud, Docker, CI/CD y despliegues automatizados.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">📱</div>
-          <h3>API Integration</h3>
-          <p>Integración con APIs de Meta, WhatsApp, servicios de terceros y webhooks.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🎨</div>
-          <h3>UI/UX Design</h3>
-          <p>Diseño de interfaces modernas, responsive y centradas en el usuario.</p>
-        </div>
+      </figure>
+    </section>
+
+    <section class="proof-strip" aria-label="Áreas de trabajo">
+      <div class="shell proof-list">
+        <span>Web applications</span><span>Business systems</span><span>APIs &amp; data</span><span>AI agents</span><span>Delivery</span>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section id="contacto">
-    <div class="container">
-      <div class="contact-box">
-        <h2>¿Trabajamos juntos?</h2>
-        <p>Estoy disponible para proyectos freelance, consultoría o colaboraciones a largo plazo.</p>
-        <div class="contact-links">
-          <a href="mailto:leinadgalaxy@gmail.com">leinadgalaxy@gmail.com</a>
-          <a href="https://github.com/rolito240" target="_blank">GitHub</a>
-          <a href="https://linkedin.com/in/daniel-martinez-381034228/" target="_blank">LinkedIn</a>
-          <a href="https://wa.me/573002053165" target="_blank">WhatsApp</a>
+    <section id="proyecto" class="case shell" aria-labelledby="case-title">
+      <div class="section-label"><span>01</span><span data-copy="es">Trabajo seleccionado</span><span data-copy="en">Selected work</span></div>
+      <article class="case-layout">
+        <div class="case-title">
+          <p class="case-state"><span data-copy="es">Producto propio</span><span data-copy="en">Own product</span></p>
+          <h2 id="case-title">Agenc-IA</h2>
+          <p data-copy="es">Plataforma web y ERP/CRM con agentes de IA para conectar atención, seguimiento y operación.</p>
+          <p data-copy="en">Web platform and ERP/CRM with AI agents connecting customer service, follow-up and operations.</p>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="case-detail">
+          <div>
+            <h3 data-copy="es">Mi contribución</h3><h3 data-copy="en">My contribution</h3>
+            <p data-copy="es">Desarrollo e integración del ERP/CRM, APIs, webhooks y agentes; coordinación del desarrollo asistido por IA, revisión de cambios y validación de recorridos.</p>
+            <p data-copy="en">ERP/CRM, API, webhook and agent development and integration; coordination of AI-assisted delivery, change review and workflow validation.</p>
+          </div>
+          <dl>
+            <div><dt data-copy="es">Tecnologías</dt><dt data-copy="en">Technology</dt><dd>Vue · TypeScript · Supabase · Vercel</dd></div>
+            <div><dt data-copy="es">Estado</dt><dt data-copy="en">Status</dt><dd data-copy="es">Producto publicado · integraciones por alcance</dd><dd data-copy="en">Published product · scoped integrations</dd></div>
+          </dl>
+          <a class="case-link" href="https://agenc-ia.com.co/" target="_blank" rel="noopener noreferrer"><span data-copy="es">Visitar sitio público</span><span data-copy="en">Visit public site</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>© 2026 Daniel Martinez. Hecho con dedicación y mucho café.</p>
+    <section id="clientes" class="client-work shell" aria-labelledby="client-work-title">
+      <div class="section-label"><span>02</span><span data-copy="es">Trabajo para clientes</span><span data-copy="en">Client work</span></div>
+      <div class="client-heading">
+        <h2 id="client-work-title" data-copy="es">Sitios que convierten servicios e instituciones en recorridos claros.</h2>
+        <h2 data-copy="en">Websites that turn services and institutions into clear user journeys.</h2>
+      </div>
+      <div class="client-grid">
+        <article class="client-card">
+          <p class="case-state"><span data-copy="es">Servicios · Australia</span><span data-copy="en">Services · Australia</span></p>
+          <h3>ASK Painting</h3>
+          <p data-copy="es">Estructura del sitio y páginas de servicios y áreas, con foco en SEO local y navegación comercial. Despliegue en Vercel y conexión de dominio administrado en Hostinger.</p>
+          <p data-copy="en">Website structure plus service and location pages, focused on local SEO and clear commercial navigation. Vercel deployment and connection of a Hostinger-managed domain.</p>
+          <a href="https://askpainting.com.au/" target="_blank" rel="noopener noreferrer"><span data-copy="es">Ver sitio público</span><span data-copy="en">View live site</span><span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="client-card">
+          <p class="case-state"><span data-copy="es">Educación · Colombia</span><span data-copy="en">Education · Colombia</span></p>
+          <h3>Colegio Santa Rosa de Lima</h3>
+          <p data-copy="es">Desarrollo y mantenimiento del sitio institucional, además de configuración y administración de correos profesionales con Google Workspace.</p>
+          <p data-copy="en">Institutional website development and maintenance, plus professional email setup and administration through Google Workspace.</p>
+          <a href="https://www.colegiosantarosadelimasoacha.edu.co/" target="_blank" rel="noopener noreferrer"><span data-copy="es">Ver sitio público</span><span data-copy="en">View live site</span><span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section id="perfil" class="profile shell">
+      <p class="eyebrow" data-copy="es">Perfil</p><p class="eyebrow" data-copy="en">Profile</p>
+      <p class="profile-statement" data-copy="es">Defino necesidades, conecto servicios y reviso el resultado. La IA acelera el trabajo; las decisiones y las pruebas siguen siendo responsabilidad humana.</p>
+      <p class="profile-statement" data-copy="en">I define needs, connect services and review the result. AI accelerates the work; decisions and testing remain a human responsibility.</p>
+    </section>
+  </main>
+
+  <footer id="contacto" class="site-footer shell">
+    <div><strong>Daniel Martinez</strong><p data-copy="es">Desarrollador full-stack · Integración de IA y sistemas empresariales</p><p data-copy="en">Full-Stack Developer · AI Integration &amp; Business Systems</p></div>
+    <div class="footer-links">
+      <a href="mailto:leinadgalaxy@gmail.com">leinadgalaxy@gmail.com</a>
+      <a href="tel:+573002053165">+57 300 205 3165</a>
+      <a href="https://github.com/rolito240" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://linkedin.com/in/daniel-martinez-381034228/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
+    <button id="motion-toggle" type="button" aria-pressed="false"><span data-copy="es">Pausar movimiento</span><span data-copy="en">Pause motion</span></button>
   </footer>
-
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
 </body>
 </html>
