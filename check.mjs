@@ -15,6 +15,7 @@ const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex')
 
 assert.match(html, /Convierto procesos de negocio/)
 assert.match(html, /assets\/daniel-martinez\.jpg/)
+assert.match(html, /<link rel="canonical" href="https:\/\/agenciadia\.tech\/">/)
 assert.match(html, /ASK Painting/)
 assert.match(html, /Colegio Santa Rosa de Lima/)
 assert.doesNotMatch(html, /noindex|Retrato candidato|Data Analyst & AI Agent Orchestrator/)
