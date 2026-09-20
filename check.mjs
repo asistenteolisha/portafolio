@@ -22,8 +22,8 @@ assert.doesNotMatch(html, /noindex|Retrato candidato|Data Analyst & AI Agent Orc
 assert.match(css, /prefers-reduced-motion/)
 assert.match(js, /IntersectionObserver/)
 assert.doesNotMatch(`${html}\n${js}`, /fetch\s*\(|XMLHttpRequest|sendBeacon|\/api\//)
-assert.equal(sha256(cvEs), '1bb5f430887b763e0b1a0d1bb053bd625140e50105c454f5ffa7fe72cb6dd089')
-assert.equal(sha256(cvEn), '7f7a48b230a7698b27ebc628d3e500c1acbe728276ae822607eddf6ae969d6ad')
+assert.equal(sha256(cvEs), '45bfd45e86ec63b52225102118892594f345aa547958753413ae308707c74675')
+assert.equal(sha256(cvEn), 'af1a98dee75bb03a5480618ab880586221b363d7ed88df6fd6daeb7df8eeb553')
 assert.equal(sha256(portrait), 'beb1cba3a4e0aa12861752415946c1527ce02c94889f1c802149bd3bb8792db4')
 assert.ok(portrait.length > 100_000)
 
